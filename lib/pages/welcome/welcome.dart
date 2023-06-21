@@ -31,6 +31,8 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
+                //
+                //Slide Page Feature
                 PageView(
                   controller: pageController,
                   onPageChanged: (index) {
@@ -42,7 +44,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     _page(
                       1,
                       context,
-                      "get started",
+                      "Next",
                       "First See Learning",
                       "Forget About a for of paper all knowledge in on learning",
                       "assets/images/reading.png",
@@ -50,7 +52,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     _page(
                       2,
                       context,
-                      "next",
+                      "Next",
                       "Connect With Everyone",
                       "Always Keep in touch with your purpose & friends. Let's get connected",
                       "assets/images/boy.png",
@@ -58,7 +60,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     _page(
                       3,
                       context,
-                      "next",
+                      "Get Started",
                       "Always Facinated Learning",
                       "Anywhere. Anytime. The time is at your our discrtion, so study whenever you want ",
                       "assets/images/man.png",
@@ -143,9 +145,11 @@ class _WelcomePageState extends State<WelcomePage> {
                 curve: Curves.decelerate,
               );
             } else {
+              //
               //Jump to a new page
+              //Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage()));
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyHomePage()));
+                  .pushNamedAndRemoveUntil("signIn", (route) => false);
             }
           },
           child: Container(

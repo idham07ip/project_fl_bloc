@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/app_blocs.dart';
 import 'package:project_fl_bloc/app_events.dart';
 import 'package:project_fl_bloc/app_states.dart';
+import 'package:project_fl_bloc/pages/sign_in/sign_in.dart';
 import 'package:project_fl_bloc/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:project_fl_bloc/pages/welcome/welcome.dart';
 
@@ -27,9 +28,23 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: ScreenUtilInit(
-        builder: (context, child) => const MaterialApp(
+        builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: WelcomePage(),
+
+          //REMOVE LINES
+          theme: ThemeData(
+            appBarTheme: const AppBarTheme(
+              elevation: 0,
+              backgroundColor: Colors.white,
+            ),
+          ),
+
+          //
+          home: const WelcomePage(),
+          routes: {
+            "myHomePage": (context) => const MyHomePage(),
+            "signIn": (context) => const SignIn(),
+          },
         ),
       ),
     );
@@ -67,6 +82,7 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
+            heroTag: "heroTag1",
             onPressed: () =>
                 BlocProvider.of<AppBlocs>(context).add(Increment()),
             tooltip: 'Increment',
@@ -74,6 +90,7 @@ class MyHomePage extends StatelessWidget {
           ),
           //
           FloatingActionButton(
+            heroTag: "heroTag2",
             onPressed: () =>
                 BlocProvider.of<AppBlocs>(context).add(Decrement()),
             tooltip: 'Decrement',
