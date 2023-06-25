@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "88368007763",
+    "project_id": "project-fl-bloc",
+    "storage_bucket": "project-fl-bloc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88368007763:android:e6cebe22307e911d54d4a6",
+        "android_client_info": {
+          "package_name": "com.example.project_fl_bloc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88368007763-rol30lem8tlq9penffb34gdf5flengp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4IS0_Tm1huNcBwLp7lFvsH8hUtuuS8w0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88368007763-rol30lem8tlq9penffb34gdf5flengp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

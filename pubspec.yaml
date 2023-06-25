@@ -36,6 +36,7 @@ dependencies:
   dots_indicator:
   intl:
   cloud_firestore:
+  firebase_auth: ^4.6.3
 
 dev_dependencies:
 
