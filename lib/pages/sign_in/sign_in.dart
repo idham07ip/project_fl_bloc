@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_state.dart';
+import 'package:project_fl_bloc/pages/sign_in/sign_in_controller.dart';
 import 'package:project_fl_bloc/pages/sign_in/widget/sign_in_widget.dart';
 
 class SignIn extends StatefulWidget {
@@ -68,12 +69,18 @@ class _SignInState extends State<SignIn> {
 
                         //LOGIN
                         buildLoginAndRegistButton("Login", "login", () {
-                          print("login Button");
+                          // print("login Button");
+
+                          //Pass a method
+                          SignInController(context: context)
+                              .handleSignIn("email");
                         }),
 
                         //REGISTER
-                        buildLoginAndRegistButton(
-                            "Register", "register", () {}),
+                        buildLoginAndRegistButton("Register", "register", () {
+                          //pass and event
+                          Navigator.of(context).pushNamed("register");
+                        }),
                       ],
                     ),
                   ),
