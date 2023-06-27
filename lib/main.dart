@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/app_blocs.dart';
 import 'package:project_fl_bloc/app_events.dart';
 import 'package:project_fl_bloc/app_states.dart';
+import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:project_fl_bloc/pages/sign_in/sign_in.dart';
 import 'package:project_fl_bloc/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:project_fl_bloc/pages/welcome/welcome.dart';
@@ -29,6 +30,11 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AppBlocs(),
+        ),
+
+        //SignIn Bloc
+        BlocProvider(
+          create: (context) => SignInBloc(),
         ),
       ],
       child: ScreenUtilInit(

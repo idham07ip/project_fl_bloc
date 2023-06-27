@@ -28,10 +28,10 @@ class SignInController {
 
           //Get the information null
           if (credential.user == null) {
-            //
+            //if user doesn't exist
+            print("User does not exist");
           }
-
-          //Verified Email and Email Exis
+          //Verified Email and Email Exist
           if (!credential.user!.emailVerified) {
             //
           }
@@ -40,10 +40,20 @@ class SignInController {
           var user = credential.user;
           if (user != null) {
             //Got verified user from firebase
+            print("User exist");
           } else {
             //have an error getting user from firebase
+            print("No User");
           }
-        } catch (e) {}
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'user-not-found') {
+            print('No user for that email.');
+          } else if (e.code == 'wrong-password') {
+            print('Wrong password provided for that user');
+          } else if (e.code == 'invalid-email') {
+            print("Your email format is incorrect.");
+          }
+        }
       }
     } catch (e) {}
   }
