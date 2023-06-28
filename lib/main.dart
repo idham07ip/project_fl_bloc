@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/app_blocs.dart';
 import 'package:project_fl_bloc/app_events.dart';
 import 'package:project_fl_bloc/app_states.dart';
+import 'package:project_fl_bloc/common/values/colors.dart';
 import 'package:project_fl_bloc/pages/bloc_provider.dart';
 import 'package:project_fl_bloc/pages/register/register.dart';
 
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
           //REMOVE LINES
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(
+                color: AppColors.primaryText,
+              ),
               elevation: 0,
               backgroundColor: Colors.white,
             ),

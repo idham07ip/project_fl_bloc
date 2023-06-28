@@ -6,7 +6,8 @@ import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_state.dart';
 import 'package:project_fl_bloc/pages/sign_in/sign_in_controller.dart';
-import 'package:project_fl_bloc/pages/sign_in/widget/sign_in_widget.dart';
+//import 'package:project_fl_bloc/pages/sign_in/widget/sign_in_widget.dart';
+import 'package:project_fl_bloc/pages/common_widgets.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -24,7 +25,7 @@ class _SignInState extends State<SignIn> {
         child: SafeArea(
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: buildAppBar(),
+            appBar: buildAppBar("Login"),
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +78,7 @@ class _SignInState extends State<SignIn> {
                         }),
 
                         //REGISTER
-                        buildLoginAndRegistButton("Register", "register", () {
+                        buildLoginAndRegistButton("Sign up", "register", () {
                           //pass and event
                           Navigator.of(context).pushNamed("register");
                         }),
