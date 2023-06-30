@@ -5,11 +5,10 @@ import 'package:project_fl_bloc/app_blocs.dart';
 import 'package:project_fl_bloc/app_events.dart';
 import 'package:project_fl_bloc/app_states.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
+import 'package:project_fl_bloc/pages/application/application_page.dart';
 import 'package:project_fl_bloc/pages/bloc_provider.dart';
 import 'package:project_fl_bloc/pages/register/register.dart';
-
 import 'package:project_fl_bloc/pages/sign_in/sign_in.dart';
-
 import 'package:project_fl_bloc/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -43,10 +42,10 @@ class MyApp extends StatelessWidget {
             ),
           ),
 
-          //
-          home: const WelcomePage(),
+          //const WelcomePage(),
+          home: ApplicationPage(),
           routes: {
-            "myHomePage": (context) => const MyHomePage(),
+            // "myHomePage": (context) => const MyHomePage(),
             "signIn": (context) => const SignIn(),
             "register": (context) => const Register(),
           },
@@ -56,6 +55,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//MyHomePage Early
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 

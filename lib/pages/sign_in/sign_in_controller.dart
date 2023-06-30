@@ -60,7 +60,7 @@ class SignInController {
             print("User exist");
           } else {
             //have an error getting user from firebase
-            // print("No User");
+            print("No User");
             toastInfo(msg: "Currently you are not a user of this application");
             return;
           }
