@@ -30,6 +30,10 @@ android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
+    dexOptions {
+        javaMaxHeapSize "4g" // Atur ukuran heap Java sesuai kebutuhan Anda
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

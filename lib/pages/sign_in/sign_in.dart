@@ -80,7 +80,7 @@ class _SignInState extends State<SignIn> {
                         //REGISTER
                         buildLoginAndRegistButton("Sign up", "register", () {
                           //pass and event
-                          Navigator.of(context).pushNamed("register");
+                          Navigator.of(context).pushNamed("/register");
                         }),
                       ],
                     ),

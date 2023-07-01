@@ -4,12 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/app_blocs.dart';
 import 'package:project_fl_bloc/app_events.dart';
 import 'package:project_fl_bloc/app_states.dart';
+import 'package:project_fl_bloc/common/routes/pages.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
 import 'package:project_fl_bloc/pages/application/application_page.dart';
 import 'package:project_fl_bloc/pages/bloc_provider.dart';
 import 'package:project_fl_bloc/pages/register/register.dart';
 import 'package:project_fl_bloc/pages/sign_in/sign_in.dart';
-import 'package:project_fl_bloc/pages/welcome/welcome.dart';
+// import 'package:project_fl_bloc/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) => MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          //REMOVE LINES
+          //REMOVE_LINES
           theme: ThemeData(
             appBarTheme: const AppBarTheme(
               iconTheme: IconThemeData(
@@ -42,13 +43,15 @@ class MyApp extends StatelessWidget {
             ),
           ),
 
+          //
           //const WelcomePage(),
-          home: ApplicationPage(),
-          routes: {
-            // "myHomePage": (context) => const MyHomePage(),
-            "signIn": (context) => const SignIn(),
-            "register": (context) => const Register(),
-          },
+          //home: const ApplicationPage(),
+          onGenerateRoute: AppPages.GenerateRouteSettings,
+          // routes: {
+          //   // "myHomePage": (context) => const MyHomePage(),
+          //   "signIn": (context) => const SignIn(),
+          //   "register": (context) => const Register(),
+          // },
         ),
       ),
     );
@@ -63,7 +66,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flutter BLOC Practice"),
+        title: const Text("Flutter BLOC Practice"),
       ),
       body: Center(
         child: BlocBuilder<AppBlocs, AppStates>(

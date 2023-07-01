@@ -1,0 +1,92 @@
+//unify BlocProvider and Routes and Pages
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_fl_bloc/common/routes/names.dart';
+import 'package:project_fl_bloc/pages/application/application_page.dart';
+import 'package:project_fl_bloc/pages/register/bloc/register_blocs.dart';
+import 'package:project_fl_bloc/pages/register/register.dart';
+import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
+import 'package:project_fl_bloc/pages/sign_in/sign_in.dart';
+import 'package:project_fl_bloc/pages/welcome/bloc/welcome_blocs.dart';
+import 'package:project_fl_bloc/pages/welcome/welcome.dart';
+
+class AppPages {
+  //Member of class instances
+  static List<PageEntity> routesFunc() {
+    return [
+      //OnboardingPage
+      PageEntity(
+        route: AppRoutes.INITIAL,
+        page: const WelcomePage(),
+        bloc: BlocProvider(
+          create: (_) => WelcomeBloc(),
+        ),
+      ),
+
+      //SignInPage
+      PageEntity(
+        route: AppRoutes.SIGN_IN,
+        page: const SignIn(),
+        bloc: BlocProvider(
+          create: (_) => SignInBloc(),
+        ),
+      ),
+
+      //RegisterPage
+      PageEntity(
+        route: AppRoutes.REGISTER,
+        page: const Register(),
+        bloc: BlocProvider(
+          create: (_) => RegisterBlocs(),
+        ),
+      ),
+
+      //WelcomePage
+      PageEntity(
+        route: AppRoutes.APPLICATION,
+        page: const WelcomePage(),
+        // bloc: BlocProvider(
+        //   create: (_) => WelcomeBloc(),)
+      ),
+    ];
+  }
+
+//static function/ Return all the bloc Providers
+  static List<dynamic> allBlocProviders(BuildContext contextPages) {
+    List<dynamic> blocProviders = <dynamic>[];
+    for (var blocForLoop in routesFunc()) {
+      blocProviders.add(blocForLoop.bloc);
+    }
+    return blocProviders;
+  }
+
+  //Generate the Routes / A model that covers entire screen as we click on Navigator object.
+  static MaterialPageRoute GenerateRouteSettings(RouteSettings settings) {
+    //
+    //Check for route name matching when navigator gets triggered
+    if (settings.name != null) {
+      var result =
+          routesFunc().where((element) => element.route == settings.name);
+
+      //Check Valid or Invalid Routes
+      if (result.isNotEmpty) {
+        print("Valid route name ${settings.name}");
+        return MaterialPageRoute(
+            builder: (_) => result.first.page, settings: settings);
+      }
+    }
+    print("Invalid route name ${settings.name}");
+    return MaterialPageRoute(
+        builder: (_) => const SignIn(), settings: settings);
+  }
+}
+
+//unify BlocProvider and routes and pages
+class PageEntity {
+  String route;
+  Widget page;
+  dynamic bloc;
+
+  //create constructor optional named parameter
+  PageEntity({required this.route, required this.page, this.bloc});
+}

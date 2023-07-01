@@ -3,7 +3,7 @@ import 'package:project_fl_bloc/pages/register/bloc/register_events.dart';
 import 'package:project_fl_bloc/pages/register/bloc/register_states.dart';
 
 class RegisterBlocs extends Bloc<RegisterEvent, RegisterState> {
-  RegisterBlocs() : super(RegisterState()) {
+  RegisterBlocs() : super(const RegisterState()) {
     //Handler
     on<UserNameEvent>(_UserNameEvent);
     on<EmailRegisEvent>(_EmailRegisEvent);
