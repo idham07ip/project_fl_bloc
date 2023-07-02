@@ -58,6 +58,12 @@ class SignInController {
           if (user != null) {
             //Got user exist from firebase
             print("User exist");
+
+            //connect to Application Page
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/application", (route) => false);
+
+            toastInfo(msg: "Welcome");
           } else {
             //have an error getting user from firebase
             print("No User");
@@ -66,14 +72,14 @@ class SignInController {
           }
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
-            print('No user for that email.');
+            // print('No user for that email.');
             toastInfo(msg: "No user for that email.");
           } else if (e.code == 'wrong-password') {
-            print('Wrong password provided for that user');
+            // print('Wrong password provided for that user');
             toastInfo(msg: "Wrong password provided for that user.");
           } else if (e.code == 'invalid-email') {
-            print("Your email format is incorrect.");
-            toastInfo(msg: "Your email addres format is incorrect.");
+            // print('Your email format is incorrect.');
+            toastInfo(msg: "Your email address format is incorrect.");
           }
         }
       }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_fl_bloc/common/routes/names.dart';
 import 'package:project_fl_bloc/pages/application/application_page.dart';
+import 'package:project_fl_bloc/pages/bloc/app_blocs.dart';
 import 'package:project_fl_bloc/pages/register/bloc/register_blocs.dart';
 import 'package:project_fl_bloc/pages/register/register.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
@@ -41,18 +42,18 @@ class AppPages {
         ),
       ),
 
-      //WelcomePage
+      //ApplicationPage or HomePage
       PageEntity(
-        route: AppRoutes.APPLICATION,
-        page: const WelcomePage(),
-        // bloc: BlocProvider(
-        //   create: (_) => WelcomeBloc(),)
-      ),
+          route: AppRoutes.APPLICATION,
+          page: const ApplicationPage(),
+          bloc: BlocProvider(
+            create: (_) => AppBlocs(),
+          )),
     ];
   }
 
 //static function/ Return all the bloc Providers
-  static List<dynamic> allBlocProviders(BuildContext contextPages) {
+  static List<dynamic> allBlocProviders(BuildContext context) {
     List<dynamic> blocProviders = <dynamic>[];
     for (var blocForLoop in routesFunc()) {
       blocProviders.add(blocForLoop.bloc);

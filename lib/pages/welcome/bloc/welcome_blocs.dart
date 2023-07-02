@@ -4,7 +4,7 @@ import 'package:project_fl_bloc/pages/welcome/bloc/welcome_state.dart';
 
 class WelcomeBloc extends Bloc<WelcomeEvent, WelcomeState> {
   WelcomeBloc() : super(WelcomeState()) {
-    print("Welcome BLoC");
+    print("Welcome Project Flutter BLOC Learning Course Apps");
     on<WelcomeEvent>(((event, emit) {
       emit(WelcomeState(page: state.page));
     }));
