@@ -1,7 +1,7 @@
 class AppStates {
   //Declare Variable
-  final int indexAppState;
+  final int index;
 
   //Optional Named Parameter
-  const AppStates({this.indexAppState = 0});
+  const AppStates({this.index = 0});
 }

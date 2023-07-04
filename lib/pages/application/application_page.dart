@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
-import 'package:project_fl_bloc/common/widget/application_widget.dart';
+import 'package:project_fl_bloc/pages/application/widget/application_widget.dart';
 import 'package:project_fl_bloc/pages/bloc/app_blocs.dart';
 import 'package:project_fl_bloc/pages/bloc/app_events.dart';
 import 'package:project_fl_bloc/pages/bloc/app_states.dart';
@@ -16,17 +16,17 @@ class ApplicationPage extends StatefulWidget {
 
 class _ApplicationPageState extends State<ApplicationPage> {
   //Declare Variable
-  int _index = 0;
+  //int _index = 0;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBlocs, AppStates>(
-      builder: (context, state) {
+      builder: (context, stateApp) {
         return Container(
           color: Colors.white,
           child: SafeArea(
             child: Scaffold(
-              body: buildPage(_index),
+              body: buildPage(stateApp.index),
 
               //Make Bottom Navigation Bar
               bottomNavigationBar: Container(
@@ -47,7 +47,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   ],
                 ),
                 child: BottomNavigationBar(
-                  currentIndex: _index,
+                  currentIndex: stateApp.index,
                   onTap: (value) {
                     //Triggered UI
                     context.read<AppBlocs>().add(TriggerAppEvents(value));
@@ -69,97 +69,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   unselectedItemColor: AppColors.primaryFourElementText,
 
                   //Items
-                  items: [
-                    //Home
-                    BottomNavigationBarItem(
-                      label: "Home",
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset("assets/icons/home.png"),
-                      ),
-                      activeIcon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset(
-                          "assets/icons/home.png",
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-
-                    //Search
-                    BottomNavigationBarItem(
-                      label: "Search",
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset("assets/icons/search2.png"),
-                      ),
-                      activeIcon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset(
-                          "assets/icons/search2.png",
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-
-                    //Course
-                    BottomNavigationBarItem(
-                      label: "Course",
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset("assets/icons/play-circle1.png"),
-                      ),
-                      activeIcon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset(
-                          "assets/icons/play-circle1.png",
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-
-                    //ChatPage
-                    BottomNavigationBarItem(
-                      label: "Chat",
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset("assets/icons/message-circle.png"),
-                      ),
-                      activeIcon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset(
-                          "assets/icons/message-circle.png",
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-
-                    //ProfilePage
-                    BottomNavigationBarItem(
-                      label: "Profile",
-                      icon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset("assets/icons/person2.png"),
-                      ),
-                      activeIcon: SizedBox(
-                        width: 15.w,
-                        height: 15.h,
-                        child: Image.asset(
-                          "assets/icons/person2.png",
-                          color: AppColors.primaryElement,
-                        ),
-                      ),
-                    ),
-                  ],
+                  items: bottomTabs,
                 ),
               ),
             ),

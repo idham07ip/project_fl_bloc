@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_fl_bloc/common/widget/flutter_toast.dart';
+import 'package:project_fl_bloc/pages/application/widget/flutter_toast.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
 
 class SignInController {
