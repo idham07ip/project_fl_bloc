@@ -78,10 +78,19 @@ class AppPages {
         if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
           print("second log");
 
+          //retrieve the user token
+          bool isUserLoggedIn = Global.storageService.getIsLoggedIn();
+          if (isUserLoggedIn) {
+            //if user logged in go to ApplicationPage
+            return MaterialPageRoute(
+                builder: (_) => const ApplicationPage(), settings: settings);
+          }
+          //if user not login go to SignIn
           return MaterialPageRoute(
               builder: (_) => const SignIn(), settings: settings);
         }
 
+        //if user never login go to onBoardingPage
         return MaterialPageRoute(
             builder: (_) => result.first.page, settings: settings);
       }
@@ -92,7 +101,7 @@ class AppPages {
   }
 }
 
-//unify BlocProvider and routes and pages
+//unify routes and pages and BlocProvider
 class PageEntity {
   String route;
   Widget page;

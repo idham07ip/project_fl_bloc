@@ -16,7 +16,19 @@ class StorageService {
     return await _prefs.setBool(key, value);
   }
 
+  //function for user token key
+  Future<bool> setString(String key, String value) async {
+    return await _prefs.setString(key, value);
+  }
+
   bool getDeviceFirstOpen() {
     return _prefs.getBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME) ?? false;
+  }
+
+  //get the string try to check user has login or not
+  bool getIsLoggedIn() {
+    return _prefs.getString(AppConstants.STORAGE_USER_TOKEN_KEY) == null
+        ? false
+        : true;
   }
 }

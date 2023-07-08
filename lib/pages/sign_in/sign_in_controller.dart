@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_fl_bloc/common/values/constant.dart';
+import 'package:project_fl_bloc/global.dart';
 import 'package:project_fl_bloc/pages/application/widget/flutter_toast.dart';
 import 'package:project_fl_bloc/pages/sign_in/bloc/sign_in_blocs.dart';
 
@@ -59,7 +61,11 @@ class SignInController {
             //Got user exist from firebase
             print("User exist");
 
-            //connect to Application Page
+            //set up mechanism that already sign up
+            Global.storageService.setString(
+                AppConstants.STORAGE_USER_TOKEN_KEY, "testing123456");
+
+            //Application Route and connect to Application Page
             Navigator.of(context)
                 .pushNamedAndRemoveUntil("/application", (route) => false);
 
