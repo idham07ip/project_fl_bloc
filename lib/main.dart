@@ -3,13 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/common/routes/routes.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
+import 'package:project_fl_bloc/global.dart';
 import 'package:project_fl_bloc/pages/bloc_provider.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await Global.init();
 
-  await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

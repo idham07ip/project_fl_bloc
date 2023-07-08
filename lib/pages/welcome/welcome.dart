@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
+import 'package:project_fl_bloc/common/values/constant.dart';
+import 'package:project_fl_bloc/global.dart';
 import 'package:project_fl_bloc/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:project_fl_bloc/pages/welcome/bloc/welcome_events.dart';
 import 'package:project_fl_bloc/pages/welcome/bloc/welcome_state.dart';
@@ -142,12 +144,17 @@ class _WelcomePageState extends State<WelcomePage> {
               pageController.animateToPage(
                 index,
                 duration: const Duration(milliseconds: 500),
-                curve: Curves.decelerate,
+                curve: Curves.easeIn,
               );
             } else {
               //
               //Jump to a new page
               //Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage()));
+              print("-1");
+              Global.storageService
+                  .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+              // print(
+              //     "The value is ${Global.storageService.getDeviceFirstOpen()}");
               Navigator.of(context)
                   .pushNamedAndRemoveUntil("/sign_in", (route) => false);
             }

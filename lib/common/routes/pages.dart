@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_fl_bloc/common/routes/names.dart';
+import 'package:project_fl_bloc/global.dart';
 import 'package:project_fl_bloc/pages/application/application_page.dart';
 import 'package:project_fl_bloc/pages/bloc/app_blocs.dart';
 import 'package:project_fl_bloc/pages/register/bloc/register_blocs.dart';
@@ -62,8 +63,8 @@ class AppPages {
   }
 
   //Generate the Routes / A model that covers entire screen as we click on Navigator object.
+  //a modal that covers entire screen as click on navigator object.
   static MaterialPageRoute GenerateRouteSettings(RouteSettings settings) {
-    //
     //Check for route name matching when navigator gets triggered
     if (settings.name != null) {
       var result =
@@ -71,7 +72,16 @@ class AppPages {
 
       //Check Valid or Invalid Routes
       if (result.isNotEmpty) {
-        print("Valid route name ${settings.name}");
+        print("First log");
+        print(result.first.route);
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+        if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
+          print("second log");
+
+          return MaterialPageRoute(
+              builder: (_) => const SignIn(), settings: settings);
+        }
+
         return MaterialPageRoute(
             builder: (_) => result.first.page, settings: settings);
       }
