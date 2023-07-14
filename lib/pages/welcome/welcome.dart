@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
 import 'package:project_fl_bloc/common/values/constant.dart';
 import 'package:project_fl_bloc/global.dart';
@@ -110,10 +111,12 @@ class _WelcomePageState extends State<WelcomePage> {
         Container(
           child: Text(
             title,
-            style: TextStyle(
-              color: AppColors.primaryText,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.normal,
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                color: AppColors.primaryText,
+                fontSize: 24.sp,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
         ),
@@ -127,10 +130,12 @@ class _WelcomePageState extends State<WelcomePage> {
           ),
           child: Text(
             subTitle,
-            style: TextStyle(
-              color: AppColors.primarySecondaryElementText,
-              fontSize: 14.sp,
-              fontWeight: FontWeight.normal,
+            style: GoogleFonts.poppins(
+              textStyle: TextStyle(
+                color: AppColors.primarySecondaryElementText,
+                fontSize: 24.sp,
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ),
         ),
@@ -190,10 +195,12 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Center(
               child: Text(
                 buttonName,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.normal,
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
             ),

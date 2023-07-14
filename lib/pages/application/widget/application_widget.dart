@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project_fl_bloc/common/values/colors.dart';
+import 'package:project_fl_bloc/pages/home/homePage.dart';
 
 Widget buildPage(int indexWidget) {
   List<Widget> _widgetApp = [
-    const Center(child: Text("Homepage")),
+    const HomePage(),
     const Center(child: Text("SearchPage")),
     const Center(child: Text("CoursePage")),
     const Center(child: Text("ChatPage")),
