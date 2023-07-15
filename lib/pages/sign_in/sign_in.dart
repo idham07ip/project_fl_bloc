@@ -30,7 +30,7 @@ class _SignInState extends State<SignIn> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  //GOOGLE ACCOUNT, IPHONE ACCOUNT AND FACEBOOK ACCOUNT
+                  //GOOGLE_ACCOUNT, IPHONE ACCOUNT AND FACEBOOK ACCOUNT
                   buildThirdPartyLogin(context),
 
                   //
@@ -67,6 +67,9 @@ class _SignInState extends State<SignIn> {
 
                         //Forgot Password
                         forgotPassword(),
+
+                        //
+                        SizedBox(height: 70.h),
 
                         //LOGIN
                         buildLoginAndRegistButton("Login", "login", () {

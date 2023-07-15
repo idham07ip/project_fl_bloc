@@ -75,6 +75,8 @@ class AppPages {
         print("First log");
         print(result.first.route);
         bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+
+        //Second_log
         if (result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
           print("second log");
 

@@ -133,7 +133,7 @@ class _WelcomePageState extends State<WelcomePage> {
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
                 color: AppColors.primarySecondaryElementText,
-                fontSize: 24.sp,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.normal,
               ),
             ),
